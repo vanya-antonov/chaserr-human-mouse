@@ -20,6 +20,23 @@
 
 ## 2.3. Профили взаимодействия (mouse)
 
+Ссылка на [colab ноутбук](https://colab.research.google.com/drive/10eXPl9n7Zq4NoPhgvpcJpXsnI8SSz1wL?usp=sharing).
+
+### Входные данные
+
+- [data/mm9_chaserr.fna](data/mm9_chaserr.fna) - ENSMUST00000184554.8 Chaserr
+- [data/0923.xlsx](data/0923.xlsx) - результаты DE-анализа
+- [mm9.cage_peak_phase1and2combined_ann.txt.gz](https://fantom.gsc.riken.jp/5/datafiles/latest/extra/CAGE_peaks/mm9.cage_peak_phase1and2combined_ann.txt.gz) - Fantom promoter data (mm9)
+
+### Результаты
+
+- [chaserr_deg_promoters_1kbp.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.assa) (11,618)
+- [chaserr_deg_promoters_1kbp.all_sites.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.all_sites.assa) (99,780)
+- [output/single_deg_promoters.tsv](output/single_deg_promoters.tsv) (2,244) - список промотеров
+- [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv) (1,457) - список значимых промотеров
+
+![img/4.1.2_CHASERR_mouse_profile.png](img/4.1.2_CHASERR_mouse_profile.png)
+
 ## 3. Общие регионы взаимодействия для человека
 
 Ссылка на [colab ноутбук](https://colab.research.google.com/drive/1E3zFJ8qXbL-afAKd6N00CZPuBDCJs2y9?usp=sharing).
