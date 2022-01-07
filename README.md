@@ -6,15 +6,19 @@
 
 Ссылка на [colab ноутбук](https://colab.research.google.com/drive/1wVug5xCxIxlLOYn_ZnoqmVdEtorR4Pvi?usp=sharing).
 
-## 2.3. Профили взаимодействия (mouse)
-
 ### Входные данные
 
-- [data/chaserr_human.fna](data/chaserr_human.fna) -- последовательность Chaserr из статьи
+- [data/chaserr_human.fna](data/chaserr_human.fna) -- последовательность CHASERR из статьи
 - [data/ASO_G0272888_AD_07.chaserr_human.mix.assa](data/ASO_G0272888_AD_07.chaserr_human.mix.assa) (6,518)
 - [data/ASO_G0272888_AD_07.chaserr_human.mix.sites](data/ASO_G0272888_AD_07.chaserr_human.mix.sites) (177,417)
 - [data/ASO_G0272888_AD_10.chaserr_human.mix.assa](data/ASO_G0272888_AD_10.chaserr_human.mix.assa) (4,204)
 - [data/ASO_G0272888_AD_10.chaserr_human.mix.sites](data/ASO_G0272888_AD_10.chaserr_human.mix.sites) (115,214)
+
+### Результат
+
+![s](img/4.1.2_CHASERR_human_profile.png)
+
+## 2.3. Профили взаимодействия (mouse)
 
 ## 3. Общие регионы взаимодействия для человека
 
@@ -54,6 +58,6 @@
     - [article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07.DE_Summary](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07.DE_Summary) (3,259)
     - [article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10.DE_Summary](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10.DE_Summary) (2,102)
 
-### Результаты
+### Результат
 
 ![5-Heatmap](img/4.1.5_heatmap.png)
