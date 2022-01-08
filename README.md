@@ -2,6 +2,8 @@
 
 ## 2.1. Гомологи
 
+Ссылка на [colab ноутбук](https://colab.research.google.com/drive/1JS8iUqV0oUH4CZuBMXifwLFpeBQ_pJkW?usp=sharing).
+
 ## 2.2. Профили взаимодействия (human)
 
 Ссылка на [colab ноутбук](https://colab.research.google.com/drive/1wVug5xCxIxlLOYn_ZnoqmVdEtorR4Pvi?usp=sharing).
@@ -43,7 +45,7 @@
 
 ### Входные данные
 
-- Результаты ASSA для человека
+- Данные для человека
     - ENST00000556895.T0
     - [article_assa_and_f6/data/ASO_G0272888_AD_07/mix.assa](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/mix.assa) (6,518)
     - [article_assa_and_f6/data/ASO_G0272888_AD_07/mix.sites](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/mix.sites) (167,580)
@@ -51,15 +53,20 @@
     - [article_assa_and_f6/data/ASO_G0272888_AD_10/mix.assa](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/mix.assa) (4,204)
     - [article_assa_and_f6/data/ASO_G0272888_AD_10/mix.sites](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/mix.sites) (108,817)
     - [article_assa_and_f6/data/ASO_G0272888_AD_10/HGD.red_balls](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/HGD.red_balls) (2,102)
-- Результаты ASSA для мыши
-    - ToDo
+- Данные для мыши
+    - [data/mm9_chaserr.fna](data/mm9_chaserr.fna) - ENSMUST00000184554.8 Chaserr
+    - [chaserr_deg_promoters_1kbp.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.assa) (11,618)
+    - [chaserr_deg_promoters_1kbp.all_sites.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.all_sites.assa) (99,780)
+    - [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv) (1,457)
 
 
 ### Результаты
 
-| ASO_07 | ASO_10 |
-|:---:|:---:|
-|![3-deepTools-1](img/4.1.3_deeptools-1.png)|![3-deepTools-2](img/4.1.3_deeptools-2.png)|
+Нужно еще раз пересчитать для мыши, т.к. в ASSA записалось 140 очень коротких промотеров, которые здесь не учитываются.
+
+| ASO_07 | ASO_10 | mm |
+|:---:|:---:|:---:|
+|![3-deepTools-1](img/4.1.3_deeptools-1.png)|![3-deepTools-2](img/4.1.3_deeptools-2.png)|![3-deepTools-3](img/4.1.3_deeptools-3.png)|
 
 ## 5. Взаимодействие Chaserr с другими хеликазами
 
