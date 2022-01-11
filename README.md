@@ -2,7 +2,7 @@
 
 ## 4.1.1. Должен быть подготовлен список генов мыши, с которыми потенциально может связываться нкРНК Chaserr с помощью разработанной в лаборатории программы предсказания РНК-РНК взаимодействий ASSA.
 
-**[output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv)**
+**Было получено [1457 уникальных генов](output/single_deg_promoters_significant.tsv):**
 
 
 * Взяли результаты мышиного RNA-seq Улицкого (табличка [data/0923.xlsx](data/0923.xlsx), столбец "mEF Chaserr-/-"). Общее кол-во ДЕ-генов (adj_pvalue < 0.05 и доп фильтры) было 2455 (СПИСОК).
