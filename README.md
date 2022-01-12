@@ -7,7 +7,7 @@
 
 * Взяли результаты мышиного RNA-seq Улицкого (табличка [data/0923.xlsx](data/0923.xlsx), столбец "mEF Chaserr-/-"). Общее кол-во ДЕ-генов (adj_pvalue < 0.05 и доп фильтры) было 2455 (СПИСОК).
 
-* Для этих генов были получены все транскрипты по аннотации FANTOM5 (2244 ДЕ-генов имели хотя бы один транскрипт -- СПИСОК) -- **тут используюется версия генома mm9**, тк нет аннотации FANTOM для mm10.
+* Для этих генов были получены все транскрипты по аннотации FANTOM5 (2244 ДЕ-генов имели хотя бы один транскрипт -- СПИСОК) -- **тут используется версия генома mm9**, тк нет аннотации FANTOM для mm10.
 
 * Для каждого из 2244 генов взяли все промотеры (общее кол-во  промотеров  9911 -- СПИСОК) и к каждому промотеру добавили +1kb downstream и получили их геномные посл-ти (длина этих посл-тей будет от 1кб до 1.3 кб -- FASTA FILE!) -- **из генома mm9**!
 
@@ -26,8 +26,14 @@
 ![img/4.1.2_CHASERR_mouse_profile.png](img/4.1.2_CHASERR_mouse_profile.png)
 
 ## 4.1.3. Должны быть  выделены общие для большинства таргетных генов нкРНК Chaserr регионы взаимодействия (для человека и мыши)
-**ПЕРЕИМЕНОВАТЬ TSS в "promoter start", TES => "TSS"**
-![image](https://user-images.githubusercontent.com/44672274/148937560-3f7e0ac1-3a49-4930-8174-0df2ada9a507.png)
+
+<!-- **ПЕРЕИМЕНОВАТЬ TSS в "promoter start", TES => "TSS"** -->
+
+<!-- ![image](https://user-images.githubusercontent.com/44672274/148937560-3f7e0ac1-3a49-4930-8174-0df2ada9a507.png) -->
+
+| human ASO_07 | human ASO_10 | mouse RNA-seq |
+|:---:|:---:|:---:|
+|![3-deepTools-1](img/4.1.3_deeptools-1.png)|![3-deepTools-2](img/4.1.3_deeptools-2.png)|![3-deepTools-3](img/4.1.3_deeptools-3.png)|
 
 ## 4.1.4. Должен быть проведен анализ обогащения GO и регуляторными путями набора таргетных генов нкРНК Chaserr (отдельно для мыши и человека).
 Человек - https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/2_pvalues.co.txt
@@ -47,7 +53,7 @@
 
 # Детали работы
 
-## 2.1. Гомологи
+## 2.1. Ортологи
 
 Ссылка на [colab ноутбук](https://colab.research.google.com/drive/1JS8iUqV0oUH4CZuBMXifwLFpeBQ_pJkW?usp=sharing).
 
