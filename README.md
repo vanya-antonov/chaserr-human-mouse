@@ -9,7 +9,7 @@
 
 * Для этих генов были получены все транскрипты по аннотации FANTOM5 (2,448 ДЕ-генов имели хотя бы один транскрипт -- [output/DEgene_ids_list_promoter.txt](output/DEgene_ids_list_promoter.txt)) -- **тут используется версия генома mm9**, тк нет аннотации FANTOM для mm10.
 
-* Для каждого из 2,448 генов взяли все промотеры (общее кол-во  промотеров  10,725 -- [output/DEgene_promoter_list.txt](output/DEgene_promoter_list.txt)) и к каждому промотеру добавили +1kb downstream и получили их геномные посл-ти (длина этих посл-тей будет от 1кб до 1.3 кб -- FASTA FILE!) -- **из генома mm9**!
+* Для каждого из 2,448 генов взяли все промотеры (общее кол-во  промотеров  10,725 -- [output/DEgene_promoter_list.txt](output/DEgene_promoter_list.txt)) и к каждому промотеру добавили +1kb downstream и получили их геномные посл-ти (длина этих посл-тей будет от 1кб до 1.2 кб -- [output/mm9_deg_promoters_1kbp.fa](output/mm9_deg_promoters_1kbp.fa)) -- **из генома mm9**!
 
 * Запускаем ASSA для Chaserr-mouse (ENSMUST00000184554.8) против 10,725 посл-тей, полученных выше.
 
@@ -39,9 +39,9 @@
 Человек - https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/2_pvalues.co.txt
 
 Списки генов (названия генов в столбик):
-* Человек ASO-7 -- есть 2667 ДЕ-промотеров + ASSA (пересечение HGD.drawn_balls и HGD.red_balls) =>  XXX уникальных генов
-* Человек ASO-10 -- есть 1668 ДЕ-промотеров + ASSA (пересечение HGD.drawn_balls и HGD.red_balls) => XXX уникальных генов
-* Мышь RNA-seq 1,572 уникальных генов
+* Человек ASO-7 -- есть 2667 ДЕ-промотеров + ASSA (пересечение HGD.drawn_balls и HGD.red_balls) =>  2,202 уникальных генов - [output/ASO_07_gene_symbols_list.txt](output/ASO_07_gene_symbols_list.txt)
+* Человек ASO-10 -- есть 1668 ДЕ-промотеров + ASSA (пересечение HGD.drawn_balls и HGD.red_balls) => 1,424 уникальных генов - [output/ASO_10_gene_symbols_list.txt](output/ASO_10_gene_symbols_list.txt) 
+* Мышь RNA-seq 1,572 уникальных генов - [output/DEgene_ids_list.txt](output/DEgene_ids_list.txt)
 
 Сам GO анализ сделан с помощью PANTHER DB.
 
@@ -63,7 +63,7 @@
 
 # run hisat2
 !hisat2 -p 8 \
-  -x hg19/genome \
+  -x hg38/genome \
   -U /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq, /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq \
   -S UDN809320_S.sam \
   > UDN809320_S.hisat
@@ -144,7 +144,7 @@
 
 ### Результаты
 
-Для случая `mouse RNA-seq` не учитывается примерно 140 коротких промотеров.
+Для случая `mouse RNA-seq` не учитывается 179 (11.4%) коротких промотеров (длина меньше 10).
 
 | human ASO_07 | human ASO_10 | mouse RNA-seq |
 |:---:|:---:|:---:|
