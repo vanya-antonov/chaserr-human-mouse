@@ -2,20 +2,20 @@
 
 ## 4.1.1. Должен быть подготовлен список генов мыши, с которыми потенциально может связываться нкРНК Chaserr с помощью разработанной в лаборатории программы предсказания РНК-РНК взаимодействий ASSA.
 
-**Было получено [1457 уникальных генов](output/single_deg_promoters_significant.tsv):**
+**Было получено [1,572 уникальных генов](output/single_deg_promoters_significant.gene_id_list)** (entrezgene id):
 
 
-* Взяли результаты мышиного RNA-seq Улицкого (табличка [data/0923.xlsx](data/0923.xlsx), столбец "mEF Chaserr-/-"). Общее кол-во ДЕ-генов (adj_pvalue < 0.05 и доп фильтры) было 2455 (СПИСОК).
+* Взяли результаты мышиного RNA-seq Улицкого (табличка [data/0923.xlsx](data/0923.xlsx), столбец "mEF Chaserr-/-"). Общее кол-во ДЕ-генов (adj_pvalue < 0.05) было 2,556 ([output/DEgene_ids_list.txt](output/DEgene_ids_list.txt)).
 
-* Для этих генов были получены все транскрипты по аннотации FANTOM5 (2244 ДЕ-генов имели хотя бы один транскрипт -- СПИСОК) -- **тут используется версия генома mm9**, тк нет аннотации FANTOM для mm10.
+* Для этих генов были получены все транскрипты по аннотации FANTOM5 (2,448 ДЕ-генов имели хотя бы один транскрипт -- [output/DEgene_ids_list_promoter.txt](output/DEgene_ids_list_promoter.txt)) -- **тут используется версия генома mm9**, тк нет аннотации FANTOM для mm10.
 
-* Для каждого из 2244 генов взяли все промотеры (общее кол-во  промотеров  9911 -- СПИСОК) и к каждому промотеру добавили +1kb downstream и получили их геномные посл-ти (длина этих посл-тей будет от 1кб до 1.3 кб -- FASTA FILE!) -- **из генома mm9**!
+* Для каждого из 2,448 генов взяли все промотеры (общее кол-во  промотеров  10,725 -- [output/DEgene_promoter_list.txt](output/DEgene_promoter_list.txt)) и к каждому промотеру добавили +1kb downstream и получили их геномные посл-ти (длина этих посл-тей будет от 1кб до 1.3 кб -- FASTA FILE!) -- **из генома mm9**!
 
-* Запускаем ASSA для Chaserr-mouse (ENSMUST00000184554.8) против 9911 посл-тей, полученных выше.
+* Запускаем ASSA для Chaserr-mouse (ENSMUST00000184554.8) против 10,725 посл-тей, полученных выше.
 
-* Для каждого гена выбрали один промотер с самым сильным p-value ASSA (получился 2244 промотера -- [output/single_deg_promoters.tsv](output/single_deg_promoters.tsv))
+* Для каждого гена выбрали один промотер с самым сильным p-value ASSA (получился 2,448 промотера -- [output/single_deg_promoters.tsv](output/single_deg_promoters.tsv))
 
-* И из этого списка 2244 промотеров были выбраны 1457 случаев, где ASSA p-value < 0.01. Это и есть список генов мыши, с которыми потенциально может связываться нкРНК Chaserr -- [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv).
+* И из этого списка 2,448 промотеров были выбраны 1,572 случаев, где ASSA p-value < 0.01. Это и есть список генов мыши, с которыми потенциально может связываться нкРНК Chaserr -- [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv).
 
 ## 4.1.2. Должен быть выполнен подробный анализ предсказанных участков связывания нкРНК Chaserr человека и ее мышиного гомолога, в частности должен быть построен профиль частоты взаимодействия Chaserr с таргетными транскриптами (для человека и мыши)
 
@@ -41,7 +41,7 @@
 Списки генов (названия генов в столбик):
 * Человек ASO-7 -- есть 2667 ДЕ-промотеров + ASSA (пересечение HGD.drawn_balls и HGD.red_balls) =>  XXX уникальных генов
 * Человек ASO-10 -- есть 1668 ДЕ-промотеров + ASSA (пересечение HGD.drawn_balls и HGD.red_balls) => XXX уникальных генов
-* Мышь RNA-seq 1457 уникальных генов
+* Мышь RNA-seq 1,572 уникальных генов
 
 Сам GO анализ сделан с помощью PANTHER DB.
 
@@ -49,7 +49,36 @@
 ![5-Heatmap](img/4.1.5_heatmap.png)
 
 
+## 4.1.7
 
+```py
+# download HISAT2 indexes
+!wget https://genome-idx.s3.amazonaws.com/hisat/hg38_genome.tar.gz
+!tar -zxvf hg38_genome.tar.gz
+!rm hg38_genome.tar.gz
+
+# run fastqc
+!fastqc --quiet /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq
+!fastqc --quiet /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq
+
+# run hisat2
+!hisat2 -p 8 \
+  -x hg19/genome \
+  -U /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq, /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq \
+  -S UDN809320_S.sam \
+  > UDN809320_S.hisat
+
+!grep -P '^@|NH:i:1$' UDN809320_S.sam > UDN809320_S.uniq.sam
+!wc -l UDN809320_S.uniq.sam > UDN809320_S.sam.info
+!rm -v UDN809320_S.sam
+
+# run htseq
+!htseq-count --quiet --stranded=no \
+  UDN809320_S.uniq.sam \
+  /home/ymedvedeva/FANTOM6/data/private/F6_CAT.transcript.gtf \
+  > UDN809320_S.counts
+!grep '^__' UDN809320_S.counts > UDN809320_S.counts.info
+```
 
 # Детали работы
 
@@ -85,10 +114,10 @@
 
 ### Результаты
 
-- [chaserr_deg_promoters_1kbp.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.assa) (11,618)
-- [chaserr_deg_promoters_1kbp.all_sites.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.all_sites.assa) (99,780)
-- [output/single_deg_promoters.tsv](output/single_deg_promoters.tsv) (2,244) - список промотеров
-- [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv) (1,457) - список значимых промотеров
+- [chaserr_deg_promoters_1kbp.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.assa) (10,725)
+- [chaserr_deg_promoters_1kbp.all_sites.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.all_sites.assa) (93,546)
+- [output/single_deg_promoters.tsv](output/single_deg_promoters.tsv) (2,448) - список промотеров
+- [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv) (1,572) - список значимых промотеров
 
 ![img/4.1.2_CHASERR_mouse_profile.png](img/4.1.2_CHASERR_mouse_profile.png)
 
@@ -99,23 +128,23 @@
 ### Входные данные
 
 - Данные для человека
-    - ENST00000556895.T0
-    - [article_assa_and_f6/data/ASO_G0272888_AD_07/mix.assa](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/mix.assa) (6,518)
-    - [article_assa_and_f6/data/ASO_G0272888_AD_07/mix.sites](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/mix.sites) (167,580)
-    - [article_assa_and_f6/data/ASO_G0272888_AD_07/HGD.red_balls](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/HGD.red_balls) (3,258)
-    - [article_assa_and_f6/data/ASO_G0272888_AD_10/mix.assa](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/mix.assa) (4,204)
-    - [article_assa_and_f6/data/ASO_G0272888_AD_10/mix.sites](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/mix.sites) (108,817)
-    - [article_assa_and_f6/data/ASO_G0272888_AD_10/HGD.red_balls](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/HGD.red_balls) (2,102)
+  - ENST00000556895.T0
+  - [article_assa_and_f6/data/ASO_G0272888_AD_07/mix.assa](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/mix.assa) (6,518)
+  - [article_assa_and_f6/data/ASO_G0272888_AD_07/mix.sites](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/mix.sites) (167,580)
+  - [article_assa_and_f6/data/ASO_G0272888_AD_07/HGD.red_balls](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/HGD.red_balls) (3,258)
+  - [article_assa_and_f6/data/ASO_G0272888_AD_10/mix.assa](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/mix.assa) (4,204)
+  - [article_assa_and_f6/data/ASO_G0272888_AD_10/mix.sites](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/mix.sites) (108,817)
+  - [article_assa_and_f6/data/ASO_G0272888_AD_10/HGD.red_balls](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/HGD.red_balls) (2,102)
 - Данные для мыши
-    - [data/mm9_chaserr.fna](data/mm9_chaserr.fna) - ENSMUST00000184554.8 Chaserr
-    - [chaserr_deg_promoters_1kbp.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.assa) (11,618)
-    - [chaserr_deg_promoters_1kbp.all_sites.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.all_sites.assa) (99,780)
-    - [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv) (1,457)
+  - [data/mm9_chaserr.fna](data/mm9_chaserr.fna) - ENSMUST00000184554.8 Chaserr
+  - [chaserr_deg_promoters_1kbp.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.assa) (10,725)
+  - [chaserr_deg_promoters_1kbp.all_sites.assa](http://himorna.fbras.ru/~fed/assa_results/chaserr_deg_promoters_1kbp.all_sites.assa) (93,546)
+  - [output/single_deg_promoters_significant.tsv](output/single_deg_promoters_significant.tsv) (1,572)
 
 
 ### Результаты
 
-Нужно еще раз пересчитать для мыши, т.к. в ASSA записалось 140 очень коротких промотеров, которые здесь не учитываются.
+Для случая `mouse RNA-seq` не учитывается примерно 140 коротких промотеров.
 
 | human ASO_07 | human ASO_10 | mouse RNA-seq |
 |:---:|:---:|:---:|
