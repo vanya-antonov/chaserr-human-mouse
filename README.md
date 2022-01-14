@@ -51,33 +51,30 @@
 
 ## 4.1.7
 
-```py
+Count-матрицы и промежуточные результаты лежат в http://himorna.fbras.ru/~fed/rnaseq_results/.
+
+```bash
 # download HISAT2 indexes
-!wget https://genome-idx.s3.amazonaws.com/hisat/hg38_genome.tar.gz
-!tar -zxvf hg38_genome.tar.gz
-!rm hg38_genome.tar.gz
+$ wget https://genome-idx.s3.amazonaws.com/hisat/hg38_genome.tar.gz
+$ tar -zxvf hg38_genome.tar.gz
+$ rm hg38_genome.tar.gz
 
 # run fastqc
-!fastqc --quiet /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq
-!fastqc --quiet /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq
+$ mkdir fastqc
+$ fastqc --quiet -o fastqc /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq
+$ fastqc --quiet /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq
 
 # run hisat2
-!hisat2 -p 8 \
-  -x hg38/genome \
-  -U /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq, /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq \
-  -S UDN809320_S.sam \
-  > UDN809320_S.hisat
-
-!grep -P '^@|NH:i:1$' UDN809320_S.sam > UDN809320_S.uniq.sam
-!wc -l UDN809320_S.uniq.sam > UDN809320_S.sam.info
-!rm -v UDN809320_S.sam
+$ mkdir hisat
+$ hisat2 -p 8 -x hg38/genome -1 /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq -2 CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq -S hisat/UDN809320_S.sam > hisat/UDN809320_S.hisat
+$ grep -P '^@|NH:i:1$' hisat/UDN809320_S.sam > hisat/UDN809320_S.uniq.sam
+$ wc -l hisat/UDN809320_S.uniq.sam > hisat/UDN809320_S.sam.info
+$ rm -v hisat/UDN809320_S.sam
 
 # run htseq
-!htseq-count --quiet --stranded=no \
-  UDN809320_S.uniq.sam \
-  /home/ymedvedeva/FANTOM6/data/private/F6_CAT.transcript.gtf \
-  > UDN809320_S.counts
-!grep '^__' UDN809320_S.counts > UDN809320_S.counts.info
+$ mkdir htseq
+$ htseq-count --quiet --stranded=no hisat/UDN809320_S.uniq.sam /home/ymedvedeva/FANTOM6/data/private/F6_CAT.transcript.gtf > htseq/UDN809320_S.counts
+$ grep '^__' htseq/UDN809320_S.counts > htseq/UDN809320_S.counts.info
 ```
 
 # Детали работы
