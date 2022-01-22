@@ -159,7 +159,9 @@ $ grep '^__' htseq/UDN809320_S.counts > htseq/UDN809320_S.counts.info
     - [data/ASO_G0272888_AD_10.oligo_DE_Summary_promoter.tsv](data/ASO_G0272888_AD_10.oligo_DE_Summary_promoter.tsv) (28,123)
 - Данные по таргетным промотерам
     - [article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07.DE_Summary](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07.DE_Summary) (3,259)
+    - [article_assa_and_f6/blob/master/data/ASO_G0272888_AD_07/HGD.drawn_balls](https://github.com/vanya-antonov/article_assa_and_f6/raw/master/data/ASO_G0272888_AD_07/HGD.drawn_balls) (4,686)
     - [article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10.DE_Summary](https://github.com/vanya-antonov/article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10.DE_Summary) (2,102)
+    - [article_assa_and_f6/blob/master/data/ASO_G0272888_AD_10/HGD.drawn_balls](https://github.com/vanya-antonov/article_assa_and_f6/raw/master/data/ASO_G0272888_AD_10/HGD.drawn_balls) (2,989)
 
 ### Результат
 
