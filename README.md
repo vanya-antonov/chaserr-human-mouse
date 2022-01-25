@@ -53,7 +53,14 @@
 
 Ссылка на ноутбук: https://colab.research.google.com/drive/1cO23CeYcqDfKFJPCnACFPebNBAUuASnA?usp=sharing.
 
-Count-матрицы и промежуточные результаты лежат в http://himorna.fbras.ru/~fed/rnaseq_results/.
+Count-матрица и промежуточные результаты лежат в http://himorna.fbras.ru/~fed/rnaseq_results/.
+
+Корреляция Пирсена между экспериментами FANTOM6 и Emma для наборов DE-генов с высокой значимостью ASSA:
+
+- ASO 07: correlation=0.25, pvalue=2.7-33
+- ASO 10: correlation=0.69, pvalue=1.4-206
+
+![img/4.1.7_scatterplot.png](img/4.1.7_scatterplot.png)
 
 ```bash
 # download HISAT2 indexes
@@ -68,14 +75,12 @@ $ fastqc --quiet /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq
 
 # run hisat2
 $ mkdir hisat
-$ hisat2 -p 8 -x hg38/genome -1 /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq -2 CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq -S hisat/UDN809320_S.sam > hisat/UDN809320_S.hisat
-$ grep -P '^@|NH:i:1$' hisat/UDN809320_S.sam > hisat/UDN809320_S.uniq.sam
-$ wc -l hisat/UDN809320_S.uniq.sam > hisat/UDN809320_S.sam.info
-$ rm -v hisat/UDN809320_S.sam
+$ hisat2 -p 8 -x hg38/genome -1 /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.1.fastq -2 /data/CHASERR/data/private/rna_seq_Emma/UDN809320_S.2.fastq -S hisat/UDN809320_S.sam --summary-file hisat/UDN809320_S.sam.summary
+$ samtools sort -n hisat/UDN809320_S.sam > hisat/UDN809320_S.sorted.sam
 
 # run htseq
 $ mkdir htseq
-$ htseq-count --quiet --stranded=no hisat/UDN809320_S.uniq.sam /home/ymedvedeva/FANTOM6/data/private/F6_CAT.transcript.gtf > htseq/UDN809320_S.counts
+$ htseq-count --quiet -r name --stranded=no hisat/UDN809320_S.sorted.sam /home/ymedvedeva/FANTOM6/data/private/F6_CAT.transcript.gtf > htseq/UDN809320_S.counts
 $ grep '^__' htseq/UDN809320_S.counts > htseq/UDN809320_S.counts.info
 ```
 
