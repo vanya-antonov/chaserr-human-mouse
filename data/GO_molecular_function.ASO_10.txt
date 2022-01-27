@@ -1,0 +1,80 @@
+
+
+
+
+
+Analysis Type:	PANTHER Overrepresentation Test (Released 20210224)
+Annotation Version and Release Date:	GO Ontology database DOI:  10.5281/zenodo.5725227 Released 2021-11-16
+Analyzed List:	Client Text Box Input (Homo sapiens)
+Reference List:	Homo sapiens (all genes in database)
+Test Type:	FISHER
+Correction:	FDR
+GO molecular function complete	Homo sapiens - REFLIST (20595)	Client Text Box Input (1348)	Client Text Box Input (expected)	Client Text Box Input (over/under)	Client Text Box Input (fold Enrichment)	Client Text Box Input (raw P-value)	Client Text Box Input (FDR)
+calcium-dependent protein serine/threonine kinase activity (GO:0009931)	22	8	1.44	+	5.56	3.44E-04	3.01E-02
+calcium-dependent protein kinase activity (GO:0010857)	23	8	1.51	+	5.31	4.39E-04	3.36E-02
+translation repressor activity (GO:0030371)	25	8	1.64	+	4.89	6.93E-04	4.99E-02
+transcription corepressor binding (GO:0001222)	46	12	3.01	+	3.99	1.76E-04	1.75E-02
+transcription coregulator binding (GO:0001221)	113	28	7.40	+	3.79	2.97E-08	9.08E-06
+polyubiquitin modification-dependent protein binding (GO:0031593)	54	12	3.53	+	3.40	6.15E-04	4.50E-02
+modification-dependent protein binding (GO:0140030)	164	27	10.73	+	2.52	4.97E-05	5.66E-03
+nuclear receptor binding (GO:0016922)	142	23	9.29	+	2.47	2.23E-04	2.15E-02
+cadherin binding (GO:0045296)	324	51	21.21	+	2.40	9.45E-08	2.44E-05
+transcription coactivator activity (GO:0003713)	281	41	18.39	+	2.23	1.00E-05	1.29E-03
+RNA polymerase II-specific DNA-binding transcription factor binding (GO:0061629)	355	50	23.24	+	2.15	2.83E-06	4.96E-04
+DNA-binding transcription factor binding (GO:0140297)	482	65	31.55	+	2.06	3.11E-07	7.24E-05
+transcription factor binding (GO:0008134)	619	83	40.52	+	2.05	8.83E-09	3.09E-06
+mRNA binding (GO:0003729)	314	42	20.55	+	2.04	4.87E-05	5.68E-03
+transcription coregulator activity (GO:0003712)	512	66	33.51	+	1.97	1.07E-06	2.18E-04
+cell adhesion molecule binding (GO:0050839)	551	69	36.06	+	1.91	1.60E-06	3.13E-04
+chromatin binding (GO:0003682)	592	74	38.75	+	1.91	6.91E-07	1.54E-04
+protein serine kinase activity (GO:0106310)	362	45	23.69	+	1.90	1.46E-04	1.52E-02
+GTPase binding (GO:0051020)	299	37	19.57	+	1.89	5.36E-04	3.98E-02
+protein domain specific binding (GO:0019904)	683	82	44.70	+	1.83	7.65E-07	1.63E-04
+protein serine/threonine kinase activity (GO:0004674)	433	51	28.34	+	1.80	1.67E-04	1.70E-02
+ubiquitin-protein transferase activity (GO:0004842)	435	50	28.47	+	1.76	3.57E-04	3.07E-02
+protein serine/threonine/tyrosine kinase activity (GO:0004712)	448	51	29.32	+	1.74	4.30E-04	3.45E-02
+actin binding (GO:0003779)	451	51	29.52	+	1.73	4.50E-04	3.39E-02
+ubiquitin-like protein transferase activity (GO:0019787)	460	52	30.11	+	1.73	3.65E-04	3.08E-02
+enzyme binding (GO:0019899)	2053	223	134.37	+	1.66	8.46E-13	5.18E-10
+kinase binding (GO:0019900)	765	83	50.07	+	1.66	2.83E-05	3.56E-03
+protein homodimerization activity (GO:0042803)	701	76	45.88	+	1.66	6.79E-05	7.39E-03
+protein kinase activity (GO:0004672)	581	62	38.03	+	1.63	4.31E-04	3.40E-02
+protein kinase binding (GO:0019901)	683	72	44.70	+	1.61	1.99E-04	1.95E-02
+phosphotransferase activity, alcohol group as acceptor (GO:0016773)	690	72	45.16	+	1.59	2.84E-04	2.58E-02
+transferase activity, transferring phosphorus-containing groups (GO:0016772)	924	95	60.48	+	1.57	4.30E-05	5.26E-03
+RNA binding (GO:0003723)	1691	171	110.68	+	1.54	7.67E-08	2.21E-05
+kinase activity (GO:0016301)	763	77	49.94	+	1.54	4.16E-04	3.40E-02
+protein-containing complex binding (GO:0044877)	1290	128	84.43	+	1.52	9.79E-06	1.30E-03
+transferase activity (GO:0016740)	2302	227	150.67	+	1.51	2.35E-09	8.87E-07
+catalytic activity, acting on a protein (GO:0140096)	2313	228	151.39	+	1.51	1.97E-09	8.02E-07
+protein dimerization activity (GO:0046983)	1048	103	68.59	+	1.50	1.13E-04	1.20E-02
+cytoskeletal protein binding (GO:0008092)	998	96	65.32	+	1.47	3.71E-04	3.08E-02
+purine ribonucleoside triphosphate binding (GO:0035639)	1841	172	120.50	+	1.43	6.97E-06	1.00E-03
+purine ribonucleotide binding (GO:0032555)	1911	178	125.08	+	1.42	5.08E-06	8.03E-04
+purine nucleotide binding (GO:0017076)	1924	179	125.93	+	1.42	5.36E-06	8.21E-04
+small molecule binding (GO:0036094)	2507	232	164.09	+	1.41	1.96E-07	4.80E-05
+ribonucleotide binding (GO:0032553)	1928	178	126.19	+	1.41	8.60E-06	1.17E-03
+nucleotide binding (GO:0000166)	2168	198	141.90	+	1.40	4.47E-06	7.55E-04
+nucleoside phosphate binding (GO:1901265)	2169	198	141.97	+	1.39	4.51E-06	7.37E-04
+identical protein binding (GO:0042802)	2116	193	138.50	+	1.39	6.77E-06	1.00E-03
+adenyl nucleotide binding (GO:0030554)	1570	142	102.76	+	1.38	2.34E-04	2.16E-02
+adenyl ribonucleotide binding (GO:0032559)	1559	141	102.04	+	1.38	2.24E-04	2.11E-02
+ATP binding (GO:0005524)	1495	135	97.85	+	1.38	3.20E-04	2.85E-02
+anion binding (GO:0043168)	2411	215	157.81	+	1.36	7.75E-06	1.08E-03
+organic cyclic compound binding (GO:0097159)	6046	533	395.73	+	1.35	1.37E-14	1.12E-11
+heterocyclic compound binding (GO:1901363)	5971	524	390.82	+	1.34	5.93E-14	4.15E-11
+carbohydrate derivative binding (GO:0097367)	2279	199	149.17	+	1.33	6.18E-05	6.88E-03
+nucleic acid binding (GO:0003676)	3999	349	261.75	+	1.33	2.32E-08	7.56E-06
+DNA binding (GO:0003677)	2498	216	163.50	+	1.32	4.82E-05	5.75E-03
+catalytic activity (GO:0003824)	5626	478	368.24	+	1.30	2.61E-10	1.16E-07
+ion binding (GO:0043167)	6074	492	397.56	+	1.24	8.81E-08	2.40E-05
+protein binding (GO:0005515)	14397	1141	942.32	+	1.21	2.97E-34	1.45E-30
+metal ion binding (GO:0046872)	4284	336	280.40	+	1.20	4.31E-04	3.35E-02
+binding (GO:0005488)	16551	1231	1083.31	+	1.14	3.74E-27	9.16E-24
+molecular_function (GO:0003674)	18267	1295	1195.63	+	1.08	4.22E-21	6.88E-18
+molecular transducer activity (GO:0060089)	1551	57	101.52	-	.56	1.86E-06	3.50E-04
+signaling receptor activity (GO:0038023)	1551	57	101.52	-	.56	1.86E-06	3.38E-04
+Unclassified (UNCLASSIFIED)	2328	53	152.37	-	.35	4.22E-21	5.16E-18
+transmembrane signaling receptor activity (GO:0004888)	1330	30	87.05	-	.34	2.37E-12	1.16E-09
+G protein-coupled receptor activity (GO:0004930)	883	4	57.79	-	.07	1.32E-19	1.29E-16
+olfactory receptor activity (GO:0004984)	441	0	28.86	-	 < 0.01	1.21E-12	6.56E-10
