@@ -43,7 +43,10 @@
 * Человек ASO-10 -- есть 1668 ДЕ-промотеров + ASSA (пересечение HGD.drawn_balls и HGD.red_balls) => 1,424 уникальных генов - [output/ASO_10_gene_symbols_list.txt](output/ASO_10_gene_symbols_list.txt) 
 * Мышь RNA-seq 1,572 уникальных генов - [output/DEgene_ids_list.txt](output/DEgene_ids_list.txt)
 
-Сам GO анализ сделан с помощью PANTHER DB.
+Результаты GO анализа полученные с помощью веб-сервиса PANTHER DB:
+* [Human ASO-7 molecular function](https://github.com/vanya-antonov/chaserr-human-mouse/blob/main/data/GO_molecular_function.ASO_07.txt)
+* [Human ASO-10 molecular function](https://github.com/vanya-antonov/chaserr-human-mouse/blob/main/data/GO_molecular_function.ASO_10.txt)
+* [Mouse RNA-seq molecular function](https://github.com/vanya-antonov/chaserr-human-mouse/blob/main/data/GO_molecular_function.mouse_RNA_seq.txt)
 
 ## 4.1.5. Должна протестирована возможность взаимодействия Chaserr с другими хеликазами, для этого с использованием публичных данных ChIP-seq должен быть проведен анализ ко-локализации потенциально таргетных участков с участками локализации других хеликаз
 ![5-Heatmap](img/4.1.5_heatmap_pvals_coloring.png)
