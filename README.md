@@ -53,14 +53,18 @@
 
 Ссылка на ноутбук: https://colab.research.google.com/drive/1cO23CeYcqDfKFJPCnACFPebNBAUuASnA?usp=sharing.
 
-Count-матрица и промежуточные результаты лежат в http://himorna.fbras.ru/~fed/rnaseq_results/.
+Count-матрица и промежуточные результаты лежат в http://himorna.fbras.ru/~fed/rnaseq_results/. В итоговом варианте используется аннотация gencode v38.
+
+![img/4.1.7_alignment_statistics.png](img/4.1.7_alignment_statistics.png)
+
+![img/4.1.7_count_statistics.png](img/4.1.7_count_statistics.png)
 
 Корреляция Пирсена между экспериментами FANTOM6 и Emma для наборов DE-генов с высокой значимостью ASSA:
 
-- ASO 07: correlation=0.25, pvalue=2.7-33
-- ASO 10: correlation=0.69, pvalue=1.4-206
+- ASO 07 (2,168 генов): correlation=0.37, pvalue=5.1e-70
+- ASO 10 (1,386 генов): correlation=0.7, pvalue=4e-210
 
-![img/4.1.7_scatterplot.png](img/4.1.7_scatterplot.png)
+![img/4.1.7_scatterplot.png](img/4.1.7_scatter_gencode.png)
 
 ```bash
 # download HISAT2 indexes
